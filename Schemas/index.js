@@ -18,8 +18,8 @@ const RootQueryType = new GraphQLObjectType({
     fields:{
         //Query_ to get All authenticated Users
         getAllUsers: {
-            type: new GraphQLList(UserType),
-//             type: UserType,
+//            type: new GraphQLList(UserType),
+             type: UserType,
             args: { 
                 id : {type: GraphQLString},
                 first_name: { type : GraphQLString},
