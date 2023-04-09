@@ -28,7 +28,7 @@ const RootQueryType = new GraphQLObjectType({
                 phone_number: { type : GraphQLString}     
             },
             resolve: async(parent, args) => {
-                const users await User.find();
+                const users= await User.find();
                 return users;
             }
         },
