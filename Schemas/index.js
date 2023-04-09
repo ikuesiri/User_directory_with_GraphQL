@@ -30,7 +30,7 @@ const RootQueryType = new GraphQLObjectType({
                 const users= await User.find();
                 const userObj = {}
                 users.forEach((userDetails, i) =>{
-                    userObj[`userID{i}`] = userDetails;
+                    userObj[`userID${i}`] = userDetails;
                 }
                 return userObj;
             }
