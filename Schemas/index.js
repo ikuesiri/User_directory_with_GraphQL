@@ -18,8 +18,7 @@ const RootQueryType = new GraphQLObjectType({
     fields:{
         //Query_ to get All authenticated Users
         getAllUsers: {
-           //type: new GraphQLList(UserType),
-                type: GraphQLObjectType,
+           type: new GraphQLList(UserType),
             args: { 
                 id : {type: GraphQLString},
                 first_name: { type : GraphQLString},
@@ -29,7 +28,11 @@ const RootQueryType = new GraphQLObjectType({
             },
             resolve: async(parent, args) => {
                 const users= await User.find();
-                return users;
+                const userObj = {}
+                users.forEach((userDetails, i) =>{
+                    userObj[`userID{i}`] = userDetails;
+                }
+                return userObj;
             }
         },
         //
